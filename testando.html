@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMS - Sistema Municipal de Informações de Saneamento Básico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo_tedplan_login.png" alt="FedPlan Logo" class="h-10 mr-2">
+                <div>
+                    <h1 class="text-xl font-bold text-blue-600">SIMS</h1>
+                    <p class="text-sm text-gray-600">Sistema Municipal de Informações de Saneamento Básico</p>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <span class="text-sm text-gray-600 mr-2">Usuário Logado</span>
+               
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-blue-600 text-white">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <span>Bem vindos Município de Cutias</span>
+            <div>
+                <a href="#" class="mx-2">Gestão</a>
+                <a href="#" class="mx-2">Indicadores</a>
+                <a href="#" class="mx-2">Manuais</a>
+                <a href="#" class="mx-2">Relatórios</a>
+                <a href="#" class="mx-2">Sair</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-blue-500 sticky top-0 z-10">
+        <div class="container mx-auto px-4">
+            <ul class="flex justify-between text-white">
+                <li class="py-2 px-4 hover:bg-blue-600 cursor-pointer">
+                    <span class="font-bold mr-2">01</span>Cadastro
+                </li>
+                <li class="py-2 px-4 hover:bg-blue-600 cursor-pointer">
+                    <span class="font-bold mr-2">02</span>Gestão
+                </li>
+                <li class="py-2 px-4 hover:bg-blue-600 cursor-pointer">
+                    <span class="font-bold mr-2">03</span>Prestação de Serviços
+                </li>
+                <li class="py-2 px-4 hover:bg-blue-600 cursor-pointer">
+                    <span class="font-bold mr-2">04</span>Monitoramento e Avaliação
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <main class="container mx-auto mt-4 px-2">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2">
+            <div class="bg-white border border-teal-700 text-teal-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 text-center py-2 px-1 rounded shadow cursor-pointer text-xs sm:text-sm" onclick="showForm('municipio')">
+                Dados do Município
+            </div>
+            <div class="bg-white border border-teal-700 text-teal-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 text-center py-2 px-1 rounded shadow cursor-pointer text-xs sm:text-sm" onclick="showForm('titular')">
+                Titular dos Serviços
+            </div>
+            <div class="bg-white border border-teal-700 text-teal-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 text-center py-2 px-1 rounded shadow cursor-pointer text-xs sm:text-sm" onclick="showForm('prestador')">
+                Prestador do Serviço
+            </div>
+            <div class="bg-white border border-teal-700 text-teal-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 text-center py-2 px-1 rounded shadow cursor-pointer text-xs sm:text-sm" onclick="showForm('regulador')">
+                Regulador e Fiscalizador
+            </div>
+            <div class="bg-white border border-teal-700 text-teal-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 text-center py-2 px-1 rounded shadow cursor-pointer text-xs sm:text-sm" onclick="showForm('controle')">
+                Controle Social
+            </div>
+            <div class="bg-white border border-teal-700 text-teal-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 text-center py-2 px-1 rounded shadow cursor-pointer text-xs sm:text-sm" onclick="showForm('simisab')">
+                Responsável SIMISAB
+            </div>
+            <div class="bg-white border border-teal-700 text-teal-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 text-center py-2 px-1 rounded shadow cursor-pointer text-xs sm:text-sm" onclick="showForm('demograficos')">
+                Dados Demográficos
+            </div>
+        </div>
+    </main>
+    <div class="container mx-auto mt-6 px-4">
+        <!-- Formulário: Dados do Município -->
+        <div id="form-municipio" class="bg-white shadow-md overflow-hidden hidden">
+            <div class="bg-teal-700 h-2"></div>
+            <div class="border-l border-r border-b border-teal-700">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-4 text-teal-700">Dados do Município</h2>
+                    <form>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_codigo_ibge">
+                                    Código IBGE*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_codigo_ibge" type="text" name="municipio_codigo_ibge" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_nome">
+                                    Nome do Município*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_nome" type="text" name="municipio_nome" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_cnpj">
+                                    CNPJ*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_cnpj" type="text" name="municipio_cnpj" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_nome_prefeitura">
+                                    Nome da Prefeitura*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_nome_prefeitura" type="text" name="municipio_nome_prefeitura" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_cep">
+                                    CEP*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_cep" type="text" name="municipio_cep" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_endereco">
+                                    Endereço*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_endereco" type="text" name="municipio_endereco" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_numero">
+                                    Número*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_numero" type="text" name="municipio_numero" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_bairro">
+                                    Bairro*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_bairro" type="text" name="municipio_bairro" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_telefone">
+                                    Telefone*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_telefone" type="tel" name="municipio_telefone" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_email">
+                                    Email*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_email" type="email" name="municipio_email" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="municipio_nome_prefeito">
+                                    Nome do Prefeito*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="municipio_nome_prefeito" type="text" name="municipio_nome_prefeito" required>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <button class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" type="button">
+                                Gravar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulário: Titular dos Serviços -->
+        <div id="form-titular" class="bg-white shadow-md overflow-hidden hidden">
+            <div class="bg-teal-700 h-2"></div>
+            <div class="border-l border-r border-b border-teal-700">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-4 text-teal-700">Titular dos Serviços Municipais de Saneamento</h2>
+                    <form>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="ts_setor_responsavel">
+                                    Setor Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ts_setor_responsavel" type="text" name="ts_setor_responsavel" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="ts_telefone_comercial">
+                                    Telefone Comercial*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ts_telefone_comercial" type="tel" name="ts_telefone_comercial" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="ts_responsavel">
+                                    Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ts_responsavel" type="text" name="ts_responsavel" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="ts_cargo">
+                                    Cargo*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ts_cargo" type="text" name="ts_cargo" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="ts_telefone">
+                                    Telefone*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ts_telefone" type="tel" name="ts_telefone" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="ts_email">
+                                    Email*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ts_email" type="email" name="ts_email" required>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <button class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" type="button">
+                                Gravar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulário: Prestador do Serviço -->
+        <div id="form-prestador" class="bg-white shadow-md overflow-hidden hidden">
+            <div class="bg-teal-700 h-2"></div>
+            <div class="border-l border-r border-b border-teal-700">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-4 text-teal-700">Prestador do Serviço de Abastecimento de Água</h2>
+                    <form>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_abrangencia">
+                                    Abrangência*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_abrangencia" type="text" name="aa_abrangencia" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_natureza_juridica">
+                                    Natureza Jurídica*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_natureza_juridica" type="text" name="aa_natureza_juridica" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_cnpj">
+                                    CNPJ*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_cnpj" type="text" name="aa_cnpj" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_telefone">
+                                    Telefone*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_telefone" type="tel" name="aa_telefone" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_cep">
+                                    CEP*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_cep" type="text" name="aa_cep" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_endereco">
+                                    Endereço*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_endereco" type="text" name="aa_endereco" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_numero">
+                                    Número*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_numero" type="text" name="aa_numero" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_bairro">
+                                    Bairro*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_bairro" type="text" name="aa_bairro" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_responsavel">
+                                    Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_responsavel" type="text" name="aa_responsavel" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_cargo">
+                                    Cargo*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_cargo" type="text" name="aa_cargo" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_email">
+                                    Email*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_email" type="email" name="aa_email" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="aa_secretaria_setor_responsavel">
+                                    Secretaria/Setor Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="aa_secretaria_setor_responsavel" type="text" name="aa_secretaria_setor_responsavel" required>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <button class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" type="button">
+                                Gravar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulário: Resíduos Sólidos -->
+        <div id="form-residuos" class="bg-white shadow-md rounded p-6 hidden">
+            <h2 class="text-xl font-bold mb-4 text-teal-700">Resíduos Sólidos</h2>
+            <form>
+                <!-- Add fields for resíduos sólidos -->
+            </form>
+        </div>
+
+        <!-- Formulário: Regulador e Fiscalizador -->
+        <div id="form-regulador" class="bg-white shadow-md overflow-hidden hidden">
+            <div class="bg-teal-700 h-2"></div>
+            <div class="border-l border-r border-b border-teal-700">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-4 text-teal-700">Regulador e Fiscalizador dos Serviços de Saneamento</h2>
+                    <form>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="rf_setor_responsavel">
+                                    Setor Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="rf_setor_responsavel" type="text" name="rf_setor_responsavel" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="rf_telefone_comercial">
+                                    Telefone Comercial*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="rf_telefone_comercial" type="tel" name="rf_telefone_comercial" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="rf_responsavel">
+                                    Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="rf_responsavel" type="text" name="rf_responsavel" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="rf_cargo">
+                                    Cargo*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="rf_cargo" type="text" name="rf_cargo" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="rf_telefone">
+                                    Telefone*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="rf_telefone" type="tel" name="rf_telefone" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="rf_email">
+                                    Email*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="rf_email" type="email" name="rf_email" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="rf_descricao">
+                                    Descrição*
+                                </label> 
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dd_total_moradias" type="text">
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <button class="bg-teal-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                Gravar
+                            </button>
+                            </div>
+                            </div>
+                            </div> 
+                            </div>
+
+        <!-- Formulário: Controle Social -->
+        <div id="form-controle" class="bg-white shadow-md overflow-hidden hidden">
+            <div class="bg-teal-700 h-2"></div>
+            <div class="border-l border-r border-b border-teal-700">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-4 text-teal-700">Controle Social dos Serviços Municipais de Saneamento</h2>
+                    <form>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="setor_responsavel_cs_sms">
+                                    Setor Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="setor_responsavel_cs_sms" type="text" name="setor_responsavel_cs_sms" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="telefone_cs_sms">
+                                    Telefone*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="telefone_cs_sms" type="tel" name="telefone_cs_sms" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="email_cs_sms">
+                                    Email*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email_cs_sms" type="email" name="email_cs_sms" required>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <button class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" type="button">
+                                Gravar
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Formulário: Responsável SIMISAB -->
+        <div id="form-simisab" class="bg-white shadow-md overflow-hidden hidden">
+            <div class="bg-teal-700 h-2"></div>
+            <div class="border-l border-r border-b border-teal-700">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-4 text-teal-700">Responsável pelo SIMISAB</h2>
+                    <form>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="simisab_responsavel">
+                                    Responsável*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="simisab_responsavel" type="text" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="simisab_telefone">
+                                    Telefone*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="simisab_telefone" type="tel" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="simisab_email">
+                                    Email*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="simisab_email" type="email" required>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <button class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" type="button">
+                                Gravar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Formulário: Dados Demográficos -->
+        <div id="form-demograficos" class="bg-white shadow-md overflow-hidden hidden">
+            <div class="bg-teal-700 h-2"></div>
+            <div class="border-l border-r border-b border-teal-700">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-4 text-teal-700">Dados Demográficos</h2>
+                    <form>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="dd_populacao_urbana">
+                                    População Urbana*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dd_populacao_urbana" type="text" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="dd_populacao_rural">
+                                    População Rural*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dd_populacao_rural" type="text" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="dd_populacao_total">
+                                    População Total*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dd_populacao_total" type="text" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="dd_total_moradias">
+                                    Total de Moradias*
+                                </label>
+                                <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dd_total_moradias" type="text" required>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <button class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" type="button">
+                                Gravar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        function showForm(formId) {
+            // Hide all forms
+            document.querySelectorAll('div[id^="form-"]').forEach(form => {
+                form.classList.add('hidden');
+            });
+
+            // Show the selected form
+            document.getElementById('form-' + formId).classList.remove('hidden');
+        }
+    </script>
+   
+</body>
+</html>
